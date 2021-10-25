@@ -1,0 +1,10 @@
+by.bsuir.mark.jwd.second.task
+by.bsuir.mark.jwd.second.task.dao
+by.bsuir.mark.jwd.second.task.director
+by.bsuir.mark.jwd.second.task.entity
+by.bsuir.mark.jwd.second.task.entity.comparator
+by.bsuir.mark.jwd.second.task.logic
+by.bsuir.mark.jwd.second.task.logic.impl
+by.bsuir.mark.jwd.second.task.parsing
+by.bsuir.mark.jwd.second.task.parsing.builder
+by.bsuir.mark.jwd.second.task.parsing.builder.impl
