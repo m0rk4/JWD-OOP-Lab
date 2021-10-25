@@ -1,17 +1,37 @@
 package by.bsuir.mark.jwd.second.task.dao;
 
-import by.bsuir.mark.jwd.second.task.entity.Appliance;
-import by.bsuir.mark.jwd.second.task.entity.ApplianceType;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public interface Dao<T> {
+/**
+ * Basic DAO interface supporting object classes.
+ *
+ * @param <T> the object type
+ * @param <K> the class of object
+ */
+public interface Dao<T, K> {
+    /**
+     * Get object minimum value based on comparator.
+     *
+     * @param comparator comparator for the objects
+     * @return the optional minimal value base on comparator
+     */
     Optional<T> getMinimumElement(Comparator<T> comparator);
 
-    List<T> getAllByType(ApplianceType applianceType);
+    /**
+     * Get list of all objects with specific class.
+     *
+     * @param type class of an object
+     * @return list of objects with given type
+     */
+    List<T> getAllByType(K type);
 
-    void saveAll(Map<ApplianceType, List<Appliance>> values);
+    /**
+     * Save the map of class-to-object values.
+     *
+     * @param values map of class-to-object values
+     */
+    void saveAll(Map<K, List<T>> values);
 }

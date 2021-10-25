@@ -13,20 +13,32 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Director that controls the flow of appliance
+ * loading, saving and extracting.
+ */
 public class ApplianceDirector {
     private static final Logger LOGGER = Logger.getLogger(ApplianceDirector.class.getName());
     private static final String PATH_TO_APPLIANCES_XML = "./appliances.xml";
 
-    private final Parser parser;
+    private final Parser<Appliance, ApplianceType> parser;
     private final ApplianceService applianceService;
-    private final Dao<Appliance> applianceDao;
+    private final Dao<Appliance, ApplianceType> applianceDao;
 
-    public ApplianceDirector(Parser parser, ApplianceService applianceService, Dao<Appliance> applianceDao) {
+    /**
+     * @param parser           parser for parsing appliance data.
+     * @param applianceService service for operating appliances.
+     * @param applianceDao     appliance DAO for data saving.
+     */
+    public ApplianceDirector(Parser<Appliance, ApplianceType> parser, ApplianceService applianceService, Dao<Appliance, ApplianceType> applianceDao) {
         this.parser = parser;
         this.applianceService = applianceService;
         this.applianceDao = applianceDao;
     }
 
+    /**
+     * Run the flow for appliances.
+     */
     public void process() {
         Map<ApplianceType, List<Appliance>> applianceMap;
         try {

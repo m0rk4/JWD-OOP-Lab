@@ -9,6 +9,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * A teapot {@link ApplianceXmlBuilder} implementation.
+ */
 public class TeapotXmlBuilder implements ApplianceXmlBuilder {
     @Override
     public Appliance build(Element element) throws ApplianceBuilderException {

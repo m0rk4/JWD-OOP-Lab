@@ -1,11 +1,21 @@
 package by.bsuir.mark.jwd.second.task.parsing;
 
-import by.bsuir.mark.jwd.second.task.entity.Appliance;
-import by.bsuir.mark.jwd.second.task.entity.ApplianceType;
-
 import java.util.List;
 import java.util.Map;
 
-public interface Parser {
-    Map<ApplianceType, List<Appliance>> parse(String path) throws ParserException;
+/**
+ * Basic parser interface supporting object classes.
+ *
+ * @param <T> the object type
+ * @param <K> the class of object
+ */
+public interface Parser<T, K> {
+    /**
+     * Parse the file.
+     *
+     * @param path path to file
+     * @return map of class-to-object values
+     * @throws ParserException in case of errors during parsing
+     */
+    Map<K, List<T>> parse(String path) throws ParserException;
 }

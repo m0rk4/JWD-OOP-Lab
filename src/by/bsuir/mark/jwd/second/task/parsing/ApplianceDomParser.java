@@ -19,7 +19,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class ApplianceDomParser implements Parser {
+/**
+ * An appliance XML DOM {@link Parser} implementation.
+ */
+public class ApplianceDomParser implements Parser<Appliance, ApplianceType> {
+    /**
+     * Parse the appliance xml file.
+     *
+     * @param path path to file
+     * @return map of appliance-type-to-appliance values
+     * @throws ParserException in case of errors during parsing
+     */
     @Override
     public Map<ApplianceType, List<Appliance>> parse(String path) throws ParserException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
